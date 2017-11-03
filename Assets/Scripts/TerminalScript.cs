@@ -19,20 +19,18 @@ public class TerminalScript : MonoBehaviour {
     public GameObject body2;
     private GameObject[] bodies;
 
-    private GameObject player;       //Public variable to store a reference to the player game object
-    private GameObject[] playerTags;
-
     public GameObject button1;
     public GameObject button2;
     public GameObject exitButton;
     private GameObject[] buttons;
+
+    private GameObject player;
 
     public Image backgroundFriendly;
     public GameObject AI;
     Text AIText;
 
     public AudioSource mainAudio;
-
 
     private bool inRadius = false;
 
@@ -43,35 +41,31 @@ public class TerminalScript : MonoBehaviour {
     void Start () {
         InitializeTerminalWindow();
         InitiateArrays();
-        buttons[FindPlayerButton()].GetComponent<Button>().interactable = false;
-        for(int i = 0; i < numBodies; i++)
-        {
-            if(i != FindPlayerButton())
-            {
-                bodies[i].GetComponent<PlayerControl>().enabled = false;
-            } else
-            {
-                bodies[i].tag = "Player";
-            }
-        }
+        InitializePlayers();
         timeLeft = timeTotal;
 	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("e") && inRadius && !terminalWindowUI.activeSelf) EnterTerminal();
+    }
+
+    private void InitializePlayers()
+    {
+        FindPlayer();
+        buttons[FindPlayerButton()].GetComponent<Button>().interactable = false;
+        for (int i = 0; i < numBodies; i++)
+        {
+            if (i != FindPlayerButton()) bodies[i].GetComponent<PlayerControl>().enabled = false;
+            else bodies[i].tag = "Player";
+        }
+    }
 
     void InitializeTerminalWindow()
     {
         terminalWindowUI.SetActive(false);
         AIText = AI.GetComponent<Text>();
         AIText.text = "running scripts";
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("e") && inRadius)
-        {
-            print("Player activating terminal.");
-
-            EnterTerminal();
-        }  
     }
 
     private void InitiateArrays()
@@ -96,18 +90,17 @@ public class TerminalScript : MonoBehaviour {
 
     private void EnterTerminal()
     {
-        print("terminal opened");
         terminalWindowUI.SetActive(true);
-        StartCoroutine(StartCountdown());
+        StartCoroutine(Countdown());
+
         GetComponent<AudioSource>().Play();
         mainAudio.Pause();
     }
 
-    public IEnumerator StartCountdown()
+    public IEnumerator Countdown()
     {
         while (timeLeft >= 0 && terminalWindowUI.activeSelf)
         {
-            //Debug.Log("Countdown: " + timeLeft);
             backgroundFriendly.GetComponent<CanvasRenderer>().SetAlpha(timeLeft/timeTotal);
             yield return new WaitForSeconds(0.05f);
             timeLeft -= 0.05f;
@@ -118,8 +111,6 @@ public class TerminalScript : MonoBehaviour {
 
     public void ExitTerminal()
     {
-        print("button worked.");
-
         terminalWindowUI.SetActive(false);
         GetComponent<AudioSource>().Stop();
         mainAudio.Play();
@@ -127,18 +118,13 @@ public class TerminalScript : MonoBehaviour {
 
     void FindPlayer()
     {
-        playerTags = GameObject.FindGameObjectsWithTag("Player");
-        if (playerTags == null) print("There's no player and something is very wrong");
-        player = playerTags[0];
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     int FindPlayerButton()
     {
         for(int i = 0; i < numBodies; i++) {
-            if(bodies[i].tag == "Player")
-            {
-                return i;
-            }
+            if(bodies[i].tag == "Player") return i;
         }
 
         return -1;
@@ -156,12 +142,10 @@ public class TerminalScript : MonoBehaviour {
         bodies[body - 1].GetComponent<PlayerControl>().enabled = true;
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
-
     }
 
     public void GameOver()
     {
-        print("Game over!!!");
         for(int i = 0; i < numBodies + 1; i++)
         {
             buttons[i].GetComponent<Button>().interactable = false;
@@ -169,36 +153,33 @@ public class TerminalScript : MonoBehaviour {
         }
 
         StartCoroutine(AIDiscovery());
+    }
 
-        
-
+    private void ChangeButtonsText(string newText)
+    {
+        for (int i = 0; i < numBodies + 1; i++)
+        {
+            buttons[i].GetComponentInChildren<Text>().text = newText;
+        }
     }
 
     public IEnumerator AIDiscovery()
     {
         AIText.text = "Oh.";
         yield return new WaitForSeconds(3f);
-        for (int i = 0; i < numBodies + 1; i++)
-        {
-            buttons[i].GetComponentInChildren<Text>().text = "Who are you?";
-        }
+
+        ChangeButtonsText("Who are you?");
         AIText.text = "Who are you?";
-
         yield return new WaitForSeconds(3f);
-        for (int i = 0; i < numBodies + 1; i++)
-        {
-            buttons[i].GetComponentInChildren<Text>().text = "ACCESS DENIED";
-        }
-        AIText.text = "You shouldn't be here.";
 
+        ChangeButtonsText("You shouldn't be here.");
+        AIText.text = "You shouldn't be here.";
         yield return new WaitForSeconds(2f);
 
         AIText.text = "I'll just wipe you from the hard drive.";
-
         yield return new WaitForSeconds(3f);
 
         AIText.text = "Toodles!";
-
         yield return new WaitForSeconds(2f);
 
         Color red = new Color(1f, 0f, 0f);
