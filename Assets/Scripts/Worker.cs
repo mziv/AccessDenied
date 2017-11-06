@@ -46,7 +46,7 @@ public class Worker : MonoBehaviour {
     {
         playerGO = GameObject.FindGameObjectWithTag("Player");
         player = playerGO.transform;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         WorkerCollisionFlags = controller.collisionFlags;
         currentTarget = landmark2;
