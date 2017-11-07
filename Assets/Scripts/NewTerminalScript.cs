@@ -90,7 +90,8 @@ public class NewTerminalScript : MonoBehaviour {
         if(GetPlayerIndex() == 0) SwitchBody(1);
         else SwitchBody(0);
 
-        terminalWindowUI.SetActive(false);
+        //terminalWindowUI.SetActive(false);
+        ExitTerminal();
     }
 
     void HandleLoss()

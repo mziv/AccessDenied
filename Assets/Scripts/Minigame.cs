@@ -261,7 +261,7 @@ public class Minigame : MonoBehaviour
                 images[i].GetComponent<CanvasRenderer>().SetAlpha(0.75f);
 
             }
-            else images[i].GetComponent<CanvasRenderer>().SetAlpha(0.25f);
+            else images[i].GetComponent<CanvasRenderer>().SetAlpha(0f);
         }
     }
 
@@ -272,13 +272,12 @@ public class Minigame : MonoBehaviour
 
     public IEnumerator WaitCheckSafe(int index)
     {
-        yield return new WaitForSeconds(3f);
-        if (InsideBox(images[index]) && activated[index])
+        float time = 0;
+        while (InsideBox(images[index])) 
         {
-            LoseGame();
-        } else
-        {
-            print("safe");
+            yield return new WaitForSeconds(0.05f);
+            time += 0.05f;
+            if (time >= deathTime) LoseGame();
         }
     }
 
