@@ -46,7 +46,7 @@ public class Worker : MonoBehaviour {
     {
         playerGO = GameObject.FindGameObjectWithTag("Player");
         player = playerGO.transform;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         WorkerCollisionFlags = controller.collisionFlags;
         currentTarget = landmark2;
@@ -238,9 +238,10 @@ public class Worker : MonoBehaviour {
     
     void KillPlayer()
     {
-        Animator anim = FindObjectOfType<PlayerControl>().GetComponent<Animator>();
+        playerGO = GameObject.FindGameObjectWithTag("Player");
+        Animator anim = playerGO.GetComponent<PlayerControl>().GetComponent<Animator>();
         anim.SetBool("die", true);
-        FindObjectOfType<PlayerControl>().enabled = false;
+        playerGO.GetComponent<PlayerControl>().enabled = false;
     }
 
     void setAnimationState(AnimState state)

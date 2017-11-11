@@ -3,41 +3,289 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Minigame : MonoBehaviour {
+public class Minigame : MonoBehaviour
+{
 
     public float speed;
     private Image[] images;
+    private bool[] activated;
     private Image player;
-    RectTransform rectTransform;
+    private Image finish;
+    private Image background;
 
-    // Use this for initialization
-    void Start () {
-        initializePlayer();
-    }
+    private float curTime = 0;
+    public float waitTime;
+    public float deathTime;
+    public int AITurn;
+    private bool fading = false;
 
-    void initializePlayer()
+    //private bool danger = false;
+    //private float timeToDie = 0;
+    private bool endGame = false;
+
+    void Start()
     {
         images = GetComponentsInChildren<Image>();
+        InitializeBackground();
+        InitializePlayer();
+        InitializeFinish();
+        InitializeImages();
+        InitializeActivated();
+        RenderBoxes();
+    }
+
+    void InitializeBackground()
+    {
+        background = images[0];
+        Color black = new Color(0, 0, 0);
+        SetBackgroundColor(black);
+    }
+
+    void SetBackgroundColor(Color c)
+    {
+        background.GetComponent<CanvasRenderer>().SetColor(c);
+    }
+
+    void InitializePlayer()
+    {
+        
+        player = images[images.Length - 1];
+
+    }
+
+    void InitializeFinish()
+    {
+        finish = images[images.Length - 2];
+    }
+
+    void InitializeImages()
+    {
+        Image[] temp = new Image[images.Length - 3];
+        for (int i = 1; i < images.Length - 2; i++)
+        {
+            temp[i - 1] = images[i];
+        }
+        images = temp;
+    }
+
+    void InitializeActivated()
+    {
+        activated = new bool[images.Length];
+        SetActivated(false);
+    }
+
+    void SetActivated(bool val)
+    {
+        for (int i = 0; i < activated.Length; i++)
+        {
+            activated[i] = val;
+        }
+    }
+
+    void Update()
+    {
+        if (!endGame)
+        {
+            MovePlayer();
+            CheckAI();
+            CheckFinish();
+            UpdateAI();
+        } 
+    }
+
+    void MovePlayer()
+    {
+        Vector3 newPos = player.GetComponent<RectTransform>().anchoredPosition;
+
+        if (Input.GetKey("w"))
+        {
+            if (CheckInBounds("up")) newPos.y = newPos.y + speed * Time.deltaTime;
+        }
+        else if (Input.GetKey("s"))
+        {
+            if (CheckInBounds("down")) newPos.y = newPos.y - speed * Time.deltaTime;
+        }
+        else if (Input.GetKey("a"))
+        {
+            if (CheckInBounds("left")) newPos.x = newPos.x - speed * Time.deltaTime;
+        }
+        else if (Input.GetKey("d"))
+        {
+            if (CheckInBounds("right")) newPos.x = newPos.x + speed * Time.deltaTime;
+        }
+
+        player.GetComponent<RectTransform>().anchoredPosition = newPos;
+    }
+
+    bool CheckInBounds(string direction)
+    {
+        float width = player.GetComponent<RectTransform>().rect.width;
+        float height = player.GetComponent<RectTransform>().rect.height;
+        Vector3 pos = player.GetComponent<RectTransform>().anchoredPosition;
+        RectTransform canvas = this.GetComponent<RectTransform>();
+        if (direction == "left")
+        {
+            if (pos.x - width / 2 <= -1 * canvas.rect.width / 2) return false;
+        }
+        else if (direction == "right")
+        {
+            if (pos.x + width / 2 >= canvas.rect.width / 2) return false;
+        }
+        else if (direction == "up")
+        {
+            if (pos.y + height / 2 >= canvas.rect.height / 2) return false;
+        }
+        else if (direction == "down")
+        {
+            if (pos.y - height / 2 <= -1 * canvas.rect.height / 2) return false;
+        }
+
+        return true;
+    }
+
+    bool CheckAI()
+    {
         for (int i = 0; i < images.Length; i++)
         {
-            if (images[i].CompareTag("virtualPlayer"))
+            if (activated[i])
             {
-                player = images[i];
+                if (InsideBox(images[i]))
+                {
+                    StartCoroutine(FadeBoxRed(i));
+                    GetOut(i);
+                }
             }
         }
-        rectTransform = player.GetComponent<RectTransform>();
+        return false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if(Input.GetKeyDown("w"))
+
+    public IEnumerator FadeBoxRed(int index)
+    {
+        if (!fading)
         {
-            print("key check worked");
+            fading = true;
+            float time = Time.realtimeSinceStartup;
+            Color original = images[index].GetComponent<CanvasRenderer>().GetColor();
+            Color moreRed = original;
+            while (time < time + deathTime && InsideBox(images[index]))
+            {
+                Color temp = new Color(moreRed.r, moreRed.g - (time / (time + 1))*0.5f, moreRed.b - (time / (time + 1))*0.5f);
+                images[index].GetComponent<CanvasRenderer>().SetColor(temp);
+                yield return new WaitForSeconds(0.05f);
+                time += 0.05f;
+            }
+            images[index].GetComponent<CanvasRenderer>().SetColor(original);
+            fading = false;
+        }
+        
+    }
 
-            Vector3 currentPos = rectTransform.anchoredPosition;
-            player.GetComponent<RectTransform>().anchoredPosition = new Vector3(currentPos.x + speed * Time.deltaTime, currentPos.y, currentPos.z);
+    void CheckFinish()
+    {
+        if (InsideBox(finish))
+        {
+            endGame = true;
+            SetActivated(false);
+            RenderBoxes();
+            Color win = new Color(235, 1, 0);
+            //SetBackgroundColor(win);
+            FindObjectOfType<NewTerminalScript>().gameWon = true;
+        }
+    }
 
+    bool InsideBox(Image box)
+    {
+        float boxWidth = box.GetComponent<RectTransform>().rect.width;
+        float boxHeight = box.GetComponent<RectTransform>().rect.height;
+
+        Vector3 playerPos = player.GetComponent<RectTransform>().anchoredPosition;
+        Vector3 boxPos = box.GetComponent<RectTransform>().anchoredPosition;
+
+        float leftBound = boxPos.x - boxWidth / 2;
+        float rightBound = boxPos.x + boxWidth / 2;
+        float upperBound = boxPos.y + boxHeight / 2;
+        float lowerBound = boxPos.y - boxHeight / 2;
+
+        if (playerPos.x > leftBound && playerPos.x < rightBound &&
+            playerPos.y < upperBound && playerPos.y > lowerBound)
+        {
+            return true;
         }
 
+        return false;
+    }
+
+    void UpdateAI()
+    {
+        if (CheckTimeValid())
+        {
+            for(int i = 0; i < images.Length; i++)
+            {
+                if (!InsideBox(images[i])) activated[i] = false;
+            }
+            //SetActivated(false);
+            PickBoxes();
+            RenderBoxes();
+        }
+    }
+
+    void PickBoxes()
+    {
+        System.Random rng = new System.Random();
+        for (int i = 0; i < AITurn; i++)
+        {
+            activated[rng.Next(0, images.Length)] = true;
+        }
+    }
+
+    bool CheckTimeValid()
+    {
+        float time = Mathf.Ceil(Time.realtimeSinceStartup);
+
+        if (Mathf.Ceil(Time.realtimeSinceStartup) % waitTime == 0 &&
+            Mathf.Ceil(Time.realtimeSinceStartup) != curTime)
+        {
+            curTime = time;
+            return true;
+        }
+
+        return false;
+    }
+
+    void RenderBoxes()
+    {
+        for (int i = 0; i < images.Length; i++)
+        {
+            if (activated[i])
+            {
+                images[i].GetComponent<CanvasRenderer>().SetAlpha(0.75f);
+
+            }
+            else images[i].GetComponent<CanvasRenderer>().SetAlpha(0f);
+        }
+    }
+
+    void GetOut(int index)
+    {
+        StartCoroutine(WaitCheckSafe(index));
+    }
+
+    public IEnumerator WaitCheckSafe(int index)
+    {
+        float time = 0;
+        while (InsideBox(images[index])) 
+        {
+            yield return new WaitForSeconds(0.05f);
+            time += 0.05f;
+            if (time >= deathTime) LoseGame();
+        }
+    }
+
+    void LoseGame()
+    {
+        endGame = true;
+        SetActivated(true);
+        RenderBoxes();
+        FindObjectOfType<NewTerminalScript>().gameLost = true;
     }
 }
