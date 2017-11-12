@@ -10,25 +10,32 @@ public class Minigame : MonoBehaviour
     private Image[] images;
     private bool[] activated;
     private Image player;
-    private Image finish;
+    public Vector3 startPos;
+    //private Image body1;
+    private Image[] bodies;
     private Image background;
 
     private float curTime = 0;
     public float waitTime;
     public float deathTime;
     public int AITurn;
+
+    //numBodies MUST be accurate for this to work!!
+    public int numBodies = 2;
     private bool fading = false;
 
     //private bool danger = false;
     //private float timeToDie = 0;
     private bool endGame = false;
 
+    private bool playingSound = false;
+
     void Start()
     {
         images = GetComponentsInChildren<Image>();
         InitializeBackground();
         InitializePlayer();
-        InitializeFinish();
+        InitializeFinishes();
         InitializeImages();
         InitializeActivated();
         RenderBoxes();
@@ -48,20 +55,26 @@ public class Minigame : MonoBehaviour
 
     void InitializePlayer()
     {
-        
+
         player = images[images.Length - 1];
+        //player = GameObject.FindGameObjectWithTag("virtualPlayer");
 
     }
 
-    void InitializeFinish()
+    void InitializeFinishes()
     {
-        finish = images[images.Length - 2];
+        bodies = new Image[numBodies];
+        for(int i = 0; i < numBodies; i++)
+        {
+            bodies[i] = images[images.Length - 1 - numBodies + i];
+        }
+        //body1 = images[images.Length - 2];
     }
 
     void InitializeImages()
     {
-        Image[] temp = new Image[images.Length - 3];
-        for (int i = 1; i < images.Length - 2; i++)
+        Image[] temp = new Image[images.Length - (numBodies + 2)];
+        for (int i = 1; i < images.Length - (numBodies + 1); i++)
         {
             temp[i - 1] = images[i];
         }
@@ -91,6 +104,12 @@ public class Minigame : MonoBehaviour
             CheckFinish();
             UpdateAI();
         } 
+    }
+
+    //called by other scripts when opening terminal.
+    public void ResetTerminal()
+    {
+        player.GetComponent<RectTransform>().anchoredPosition = startPos;
     }
 
     void MovePlayer()
@@ -169,7 +188,8 @@ public class Minigame : MonoBehaviour
             Color moreRed = original;
             while (time < time + deathTime && InsideBox(images[index]))
             {
-                Color temp = new Color(moreRed.r, moreRed.g - (time / (time + 1))*0.5f, moreRed.b - (time / (time + 1))*0.5f);
+                //Color temp = new Color(moreRed.r, moreRed.g - (time / (time + 1))*0.5f, moreRed.b - (time / (time + 1))*0.5f);
+                Color temp = new Color(255, 0, 0);
                 images[index].GetComponent<CanvasRenderer>().SetColor(temp);
                 yield return new WaitForSeconds(0.05f);
                 time += 0.05f;
@@ -182,14 +202,42 @@ public class Minigame : MonoBehaviour
 
     void CheckFinish()
     {
-        if (InsideBox(finish))
+        if (InsideBox(bodies[1]))
         {
-            endGame = true;
-            SetActivated(false);
-            RenderBoxes();
-            Color win = new Color(235, 1, 0);
-            //SetBackgroundColor(win);
-            FindObjectOfType<NewTerminalScript>().gameWon = true;
+            if (FindObjectOfType<CollectionManager>().card1)
+            {
+                WinGame(1);
+
+            } else
+            {
+                PlaySound("access denied");
+            }
+            
+        }
+        else if (InsideBox(bodies[0]))
+        {
+            WinGame(0);
+        }
+    }
+
+    void WinGame(int body)
+    {
+        SetActivated(false);
+        RenderBoxes();
+        FindObjectOfType<NewTerminalScript>().bodyToSwitchTo = body;
+        FindObjectOfType<NewTerminalScript>().gameWon = true;
+    }
+
+    void PlaySound(string sound)
+    {
+        playingSound = true;
+        if (sound == "access denied")
+        {
+            //play access denied sound
+        } 
+        else if (sound == "entered ai memory")
+        {
+            //play bad sound
         }
     }
 
@@ -258,7 +306,7 @@ public class Minigame : MonoBehaviour
         {
             if (activated[i])
             {
-                images[i].GetComponent<CanvasRenderer>().SetAlpha(0.75f);
+                images[i].GetComponent<CanvasRenderer>().SetAlpha(1f);
 
             }
             else images[i].GetComponent<CanvasRenderer>().SetAlpha(0f);

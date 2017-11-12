@@ -161,6 +161,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  waitTime: 0
+  deathTime: 0
+  AITurn: 0
+  numBodies: 2
 --- !u!114 &114124770038968494
 MonoBehaviour:
   m_ObjectHideFlags: 1

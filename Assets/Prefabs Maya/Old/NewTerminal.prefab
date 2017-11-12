@@ -901,6 +901,7 @@ MonoBehaviour:
   body2: {fileID: 0}
   mainAudio: {fileID: 0}
   gameWon: 0
+  bodyToSwitchTo: 0
   gameLost: 0
 --- !u!114 &114217798855650136
 MonoBehaviour:
@@ -1391,6 +1392,7 @@ MonoBehaviour:
   waitTime: 1.5
   deathTime: 1.5
   AITurn: 10
+  numBodies: 2
 --- !u!114 &114774453266035204
 MonoBehaviour:
   m_ObjectHideFlags: 1

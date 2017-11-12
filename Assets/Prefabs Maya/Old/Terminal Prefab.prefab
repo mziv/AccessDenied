@@ -799,6 +799,8 @@ MonoBehaviour:
   exitButton: {fileID: 1249331127572598}
   backgroundFriendly: {fileID: 114177604793610912}
   AI: {fileID: 1771918427755078}
+  mainAudio: {fileID: 0}
+  timeTotal: 0
 --- !u!114 &114924370881990332
 MonoBehaviour:
   m_ObjectHideFlags: 1

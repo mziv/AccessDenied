@@ -20,6 +20,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     private bool inRadius = false;
     public bool gameWon = false;
+    public int bodyToSwitchTo;
     public bool gameLost = false;
 
 
@@ -72,6 +73,7 @@ public class NewTerminalScript : MonoBehaviour {
     private void EnterTerminal()
     {
         terminalWindowUI.SetActive(true);
+        FindObjectOfType<Minigame>().ResetTerminal();
         player.GetComponent<PlayerControl>().enabled = false;
         GetComponent<AudioSource>().Play();
         mainAudio.Pause();
@@ -86,11 +88,13 @@ public class NewTerminalScript : MonoBehaviour {
 
     void HandleWin()
     {
-        if(GetPlayerIndex() == 0) SwitchBody(1);
-        else SwitchBody(0);
+        //if(GetPlayerIndex() == 0) SwitchBody(1);
+        //else SwitchBody(0);
+        SwitchBody(bodyToSwitchTo);
 
         //terminalWindowUI.SetActive(false);
         ExitTerminal();
+        gameWon = false;
     }
 
     void HandleLoss()
