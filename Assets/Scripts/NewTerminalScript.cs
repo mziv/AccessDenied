@@ -82,7 +82,6 @@ public class NewTerminalScript : MonoBehaviour {
         terminalWindowUI.SetActive(false);
         GetComponent<AudioSource>().Stop();
         mainAudio.Play();
-        player.GetComponent<PlayerControl>().enabled = true;
     }
 
     void HandleWin()
