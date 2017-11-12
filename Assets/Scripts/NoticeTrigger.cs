@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class NoticeTrigger : MonoBehaviour {
 
-    public Canvas notice;
+    public GameObject notice;
 
     void Start()
     {
-        notice.enabled = false;
+        notice.SetActive(false);
     }
 
 	void OnTriggerEnter()
     {
-        notice.enabled = true;
+        notice.SetActive(true);
     }
 }
