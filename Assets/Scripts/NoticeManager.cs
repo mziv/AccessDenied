@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NoticeManager : MonoBehaviour {
 
+    public GameObject collectableNotif;
+    public GameObject datacardNotif;
     public GameObject alert;
     public GameObject smokeNotice;
 
@@ -22,5 +24,7 @@ public class NoticeManager : MonoBehaviour {
     public void close()
     {
         smokeNotice.SetActive(false);
+        collectableNotif.SetActive(false);
+        datacardNotif.SetActive(false);
     }
 }
