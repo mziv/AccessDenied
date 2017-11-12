@@ -15,6 +15,11 @@ public class CollectionManager : MonoBehaviour {
     private bool[] acquiredState = new bool[3];
     private bool[] missingState = new bool[3];
 
+    //state of cards collected
+    public bool card1 = false;
+    public bool card2 = false;
+    public bool card3 = false;
+
     private bool inventoryOpen = false;
 
 	// Use this for initialization
@@ -27,6 +32,7 @@ public class CollectionManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        updateCollection();
         if (Input.GetKeyDown("i") && !inventoryOpen)
         {
             displayInventory();
@@ -39,8 +45,29 @@ public class CollectionManager : MonoBehaviour {
         }
 	}
 
+    void updateCollection()
+    {
+        if(card1)
+        {
+            acquiredState[0] = true;
+            missingState[0] = false;
+        }
+        if (card2)
+        {
+            acquiredState[1] = true;
+            missingState[1] = false;
+        }
+        if (card3)
+        {
+            acquiredState[2] = true;
+            missingState[2] = false;
+        }
+        if (inventoryOpen) displayInventory();
+    }
+
     void displayInventory()
     {
+        collection.enabled = false;
         inventory().enabled = inventoryState;
         for(int index = 1; index <= 3; index++)
         {
@@ -66,6 +93,7 @@ public class CollectionManager : MonoBehaviour {
         }
     }
 
+    //the following functions take in index to text array and returns the game object
     Text inventory()
     {
         return texts[0];
