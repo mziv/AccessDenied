@@ -20,6 +20,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     private bool inRadius = false;
     public bool gameWon = false;
+    public int bodyToSwitchTo;
     public bool gameLost = false;
 
 
@@ -72,6 +73,8 @@ public class NewTerminalScript : MonoBehaviour {
     private void EnterTerminal()
     {
         terminalWindowUI.SetActive(true);
+        FindObjectOfType<Minigame>().Start();
+        FindObjectOfType<Minigame>().ResetTerminal();
         player.GetComponent<PlayerControl>().enabled = false;
         GetComponent<AudioSource>().Play();
         mainAudio.Pause();
@@ -82,22 +85,25 @@ public class NewTerminalScript : MonoBehaviour {
         terminalWindowUI.SetActive(false);
         GetComponent<AudioSource>().Stop();
         mainAudio.Play();
-        player.GetComponent<PlayerControl>().enabled = true;
     }
 
     void HandleWin()
     {
-        if(GetPlayerIndex() == 0) SwitchBody(1);
-        else SwitchBody(0);
+        //if(GetPlayerIndex() == 0) SwitchBody(1);
+        //else SwitchBody(0);
+        SwitchBody(bodyToSwitchTo);
 
         //terminalWindowUI.SetActive(false);
         ExitTerminal();
+        gameWon = false;
     }
 
     void HandleLoss()
     {
         terminalWindowUI.SetActive(false);
         AI.SetActive(true);
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgameFinal"), 6);
         StartCoroutine(AIDiscovery());
     }
 
@@ -113,7 +119,7 @@ public class NewTerminalScript : MonoBehaviour {
 
         //ChangeButtonsText("You shouldn't be here.");
         AIText.text = "You shouldn't be here.";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         AIText.text = "I'll just wipe you from the hard drive.";
         yield return new WaitForSeconds(3f);
@@ -124,6 +130,8 @@ public class NewTerminalScript : MonoBehaviour {
         Color red = new Color(1f, 0f, 0f);
         AIText.color = red;
         AIText.text = "ACCESS DENIED";
+
+        FindObjectOfType<GameManager>().EndGame();
         //backgroundFriendly.GetComponent<CanvasRenderer>().SetColor(red);
         //backgroundFriendly.GetComponent<CanvasRenderer>().SetAlpha(1f);
 

@@ -3390,7 +3390,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702053518186280}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.110523, y: -5.77339, z: 53.44065}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -3658,8 +3658,8 @@ MonoBehaviour:
   attachDistance: 3
   closesenseDistance: 6
   chaseDistance: 40
-  workerSpeed: 0.03
-  workerChaseSpeed: 0.2
+  workerSpeed: 0.05
+  workerChaseSpeed: 0.3
   visionAngle: 45
   idleTimerRange: 5
   patrolDuration: 7
