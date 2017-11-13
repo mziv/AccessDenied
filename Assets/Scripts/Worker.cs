@@ -41,6 +41,9 @@ public class Worker : MonoBehaviour {
     CharacterController controller;
     private CollisionFlags WorkerCollisionFlags;
     /// </summary>
+    
+    //Keep track of whether sound effect has played
+    bool hasPlayed;
 
     void Start()
     {
@@ -79,6 +82,9 @@ public class Worker : MonoBehaviour {
 
     void Patrol()
     {
+        //reset sound effect bool
+        hasPlayed = false;
+
         System.Random rnd = new System.Random();
 
         //while not idling, produce idleDuration
@@ -187,6 +193,9 @@ public class Worker : MonoBehaviour {
     void FollowAndAttack(Vector3 direction, float angle)
     {
         //anim.SetBool("isIdle", false);
+        //play sound effect if you haven't already
+        PlaySound();
+
         direction.y = 0;
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.2f);
         //chase
@@ -200,6 +209,15 @@ public class Worker : MonoBehaviour {
         {
             KillPlayer();
             setAnimationState(AnimState.Idle);
+        }
+    }
+
+    void PlaySound()
+    {
+        if (!hasPlayed)
+        {
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+            hasPlayed = true;
         }
     }
 
