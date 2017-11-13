@@ -73,6 +73,7 @@ public class NewTerminalScript : MonoBehaviour {
     private void EnterTerminal()
     {
         terminalWindowUI.SetActive(true);
+        FindObjectOfType<Minigame>().Start();
         FindObjectOfType<Minigame>().ResetTerminal();
         player.GetComponent<PlayerControl>().enabled = false;
         GetComponent<AudioSource>().Play();
@@ -129,6 +130,8 @@ public class NewTerminalScript : MonoBehaviour {
         Color red = new Color(1f, 0f, 0f);
         AIText.color = red;
         AIText.text = "ACCESS DENIED";
+
+        FindObjectOfType<GameManager>().EndGame();
         //backgroundFriendly.GetComponent<CanvasRenderer>().SetColor(red);
         //backgroundFriendly.GetComponent<CanvasRenderer>().SetAlpha(1f);
 

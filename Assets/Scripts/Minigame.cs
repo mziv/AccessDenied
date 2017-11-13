@@ -30,7 +30,7 @@ public class Minigame : MonoBehaviour
 
     public bool playingSound = false;
 
-    void Start()
+    public void Start()
     {
         images = GetComponentsInChildren<Image>();
         InitializeBackground();
@@ -39,6 +39,7 @@ public class Minigame : MonoBehaviour
         InitializeImages();
         InitializeActivated();
         RenderBoxes();
+        print("start");
     }
 
     void InitializeBackground()
@@ -109,6 +110,8 @@ public class Minigame : MonoBehaviour
     //called by other scripts when opening terminal.
     public void ResetTerminal()
     {
+        print("reset terminal");
+
         player.GetComponent<RectTransform>().anchoredPosition = startPos;
     }
 
@@ -206,18 +209,21 @@ public class Minigame : MonoBehaviour
         {
             if (FindObjectOfType<CollectionManager>().card1)
             {
-                WinGame(0);
+                print(FindObjectOfType<CollectionManager>().card1);
+                WinGame(1);
 
             } else
             {
                 //PlaySound("access denied");
+                print("access denied");
                 FindObjectOfType<AIAudioController>().PlayAccessDenied();
+                
             }
             
         }
         else if (InsideBox(bodies[0]))
         {
-            WinGame(1);
+            WinGame(0);
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoticeTrigger : MonoBehaviour {
+public class TerminalNotifTrigger : MonoBehaviour {
 
     public GameObject notice;
 
@@ -11,9 +11,9 @@ public class NoticeTrigger : MonoBehaviour {
         notice.SetActive(false);
     }
 
-	void OnTriggerEnter()
+    void OnTriggerEnter()
     {
         notice.SetActive(true);
-        FindObjectOfType<NoticeManager>().humanAlert();
+        FindObjectOfType<NoticeManager>().terminalNotification();
     }
 }

@@ -242,6 +242,7 @@ public class Worker : MonoBehaviour {
         Animator anim = playerGO.GetComponent<PlayerControl>().GetComponent<Animator>();
         anim.SetBool("die", true);
         playerGO.GetComponent<PlayerControl>().enabled = false;
+        FindObjectOfType<GameManager>().EndGame();
     }
 
     void setAnimationState(AnimState state)
