@@ -101,6 +101,8 @@ public class NewTerminalScript : MonoBehaviour {
     {
         terminalWindowUI.SetActive(false);
         AI.SetActive(true);
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgameFinal"), 6);
         StartCoroutine(AIDiscovery());
     }
 
@@ -116,7 +118,7 @@ public class NewTerminalScript : MonoBehaviour {
 
         //ChangeButtonsText("You shouldn't be here.");
         AIText.text = "You shouldn't be here.";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         AIText.text = "I'll just wipe you from the hard drive.";
         yield return new WaitForSeconds(3f);

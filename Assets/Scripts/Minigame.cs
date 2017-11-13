@@ -206,7 +206,7 @@ public class Minigame : MonoBehaviour
         {
             if (FindObjectOfType<CollectionManager>().card1)
             {
-                WinGame(1);
+                WinGame(0);
 
             } else
             {
@@ -217,7 +217,7 @@ public class Minigame : MonoBehaviour
         }
         else if (InsideBox(bodies[0]))
         {
-            WinGame(0);
+            WinGame(1);
         }
     }
 
@@ -228,19 +228,6 @@ public class Minigame : MonoBehaviour
         FindObjectOfType<NewTerminalScript>().bodyToSwitchTo = body;
         FindObjectOfType<NewTerminalScript>().gameWon = true;
     }
-
-    //void PlaySound(string sound)
-    //{
-     //   playingSound = true;
-     //   if (sound == "access denied")
-    //    {
-            //play access denied sound
-     //   } 
-     //   else if (sound == "entered ai memory")
-     //   {
-            //play bad sound
-     //   }
-    //}
 
     bool InsideBox(Image box)
     {
