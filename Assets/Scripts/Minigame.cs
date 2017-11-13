@@ -28,7 +28,7 @@ public class Minigame : MonoBehaviour
     //private float timeToDie = 0;
     private bool endGame = false;
 
-    private bool playingSound = false;
+    public bool playingSound = false;
 
     void Start()
     {
@@ -210,7 +210,8 @@ public class Minigame : MonoBehaviour
 
             } else
             {
-                PlaySound("access denied");
+                //PlaySound("access denied");
+                FindObjectOfType<AIAudioController>().PlayAccessDenied();
             }
             
         }
@@ -228,18 +229,18 @@ public class Minigame : MonoBehaviour
         FindObjectOfType<NewTerminalScript>().gameWon = true;
     }
 
-    void PlaySound(string sound)
-    {
-        playingSound = true;
-        if (sound == "access denied")
-        {
+    //void PlaySound(string sound)
+    //{
+     //   playingSound = true;
+     //   if (sound == "access denied")
+    //    {
             //play access denied sound
-        } 
-        else if (sound == "entered ai memory")
-        {
+     //   } 
+     //   else if (sound == "entered ai memory")
+     //   {
             //play bad sound
-        }
-    }
+     //   }
+    //}
 
     bool InsideBox(Image box)
     {
@@ -316,6 +317,8 @@ public class Minigame : MonoBehaviour
     void GetOut(int index)
     {
         StartCoroutine(WaitCheckSafe(index));
+        FindObjectOfType<AIAudioController>().PlayDetectionSound();
+        
     }
 
     public IEnumerator WaitCheckSafe(int index)
