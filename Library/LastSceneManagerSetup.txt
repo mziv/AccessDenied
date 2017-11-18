@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Menu.unity
+- path: Assets/lighting_test/Emission_test/emission_test.unity
   isLoaded: 1
   isActive: 1
