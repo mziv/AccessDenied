@@ -4,6 +4,7 @@ public class CameraPos : MonoBehaviour {
 
     public Vector3 cameraPos;
     private GameObject player;
+    public float upDownOffset = 3.0f;
     public bool checkPlayer = false;
 
     // Use this for initialization
@@ -15,7 +16,7 @@ public class CameraPos : MonoBehaviour {
 	void Update () {
         LocatePlayer();
         this.transform.position = player.transform.position + cameraPos;
-        this.transform.LookAt(player.transform.position + 3 * transform.up);
+        this.transform.LookAt(player.transform.position + upDownOffset * transform.up);
     }
 
     void LocatePlayer()
