@@ -162,5 +162,6 @@ public class NewTerminalScript : MonoBehaviour {
         bodies[body].GetComponent<PlayerControl>().enabled = true;
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
+        FindObjectOfType<DoorSensorPos>().checkPlayer = true;
     }
 }
