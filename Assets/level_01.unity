@@ -2026,6 +2026,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 115324, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461558, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 2}
   m_IsPrefabParent: 0
@@ -2332,6 +2340,46 @@ Prefab:
         type: 2}
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224561804772461042, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224280114011078458, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471641241274524, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: startPosBody1.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471641241274524, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: startPosBody1.y
+      value: -233
+      objectReference: {fileID: 0}
+    - target: {fileID: 224551083575433042, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 224551083575433042, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471641241274524, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: startPosBody2.x
+      value: 129
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471641241274524, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: startPosBody2.y
+      value: 237
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35d741ea8e9f4d542873d30cf852e1a8, type: 2}
