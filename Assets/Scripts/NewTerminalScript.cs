@@ -162,7 +162,7 @@ public class NewTerminalScript : MonoBehaviour {
         bodies[body].GetComponent<PlayerControl>().enabled = true;
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
-        FindObjectOfType<AutoOpenDoor>().checkPlayer = true;
+        FindObjectOfType<DoorSensorPos>().checkPlayer = true;
         //GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
         //for(int i = 0; i < doors.Length; i++)
         //{
