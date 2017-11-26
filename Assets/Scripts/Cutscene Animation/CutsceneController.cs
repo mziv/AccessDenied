@@ -13,12 +13,17 @@ public class CutsceneController : MonoBehaviour {
     public Canvas dialogue;
     public GameObject blackout;
 
+    private AudioSource sounds;
+    public AudioClip footsteps;
+    public AudioClip turningOn;
+
     //public bool scientistWalking = false;
 
 	// Use this for initialization
 	void Start () {
         dialogue.enabled = false;
         blackout.SetActive(false);
+        sounds = this.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -29,17 +34,24 @@ public class CutsceneController : MonoBehaviour {
     public void ScientistMoving(bool val)
     {
         scientistMovementAnimator.SetBool("move", val);
-        scientistAnimator.SetBool("isWalking", val);
+        //scientistAnimator.SetBool("isWalking", val);
+        ScientistWalking(val);
     }
 
     public void ScientistWalking(bool val)
     {
         scientistAnimator.SetBool("isWalking", val);
+
+        //Play footstep sound if walking.
+        print("scientistwalking called" + val);
+        if (val) sounds.PlayOneShot(footsteps);
+        else sounds.Stop();
     }
 
     public void RobotOn(bool val)
     {
         robotAnimator.SetBool("robotOn", val);
+        if (val) sounds.PlayOneShot(turningOn);
     }
 
     public void TriggerDialogue(string keyword)
