@@ -70,7 +70,7 @@ public class CutsceneController : MonoBehaviour {
             dialogue.GetComponentInChildren<Text>().text = "I didn't sneak you halfway across the galaxy to have you mess it up.";
         } else if (keyword == "stay")
         {
-            dialogue.GetComponentInChildren<Text>().text = "And stay here!";
+            dialogue.GetComponentInChildren<Text>().text = "And don't touch anything!";
         } else if (keyword == "epsilon")
         {
             dialogue.GetComponentInChildren<Text>().text = "We don't want another Epsilon.";
