@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 2375120}
   m_Layer: 0
   m_Name: decorative_wall_3_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

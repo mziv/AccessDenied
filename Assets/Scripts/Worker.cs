@@ -287,10 +287,12 @@ public class Worker : MonoBehaviour {
 
     void FindPlayer()
     {
+        //locateTarget set to true everytime player switches bodies so worker can auto update player body it follow
         if (locateTarget)
         {
             playerGO = GameObject.FindGameObjectWithTag("Player");
             player = playerGO.transform;
+            locateTarget = false;
         }
     }
 
