@@ -207,26 +207,23 @@ public class Minigame : MonoBehaviour
         
     }
 
+    //Check card access
     void CheckFinish()
     {
         if (InsideBox(bodies[1]))
         {
-            //if (FindObjectOfType<CollectionManager>().card1)
-            //{
-            //print(FindObjectOfType<CollectionManager>().card1);
-            startPos = startPosBody2;
-            print("set start pos to body2");
-            WinGame(1);
-            
-            
-
-            //} else
-            //{
-                //PlaySound("access denied");
+            if (FindObjectOfType<CollectionManager>().card1)
+            {
+                //print(FindObjectOfType<CollectionManager>().card1);
+                startPos = startPosBody2;
+                print("set start pos to body2");
+                WinGame(1);
+            } else
+            {
                 //print("access denied");
-                //FindObjectOfType<AIAudioController>().PlayAccessDenied();
+                FindObjectOfType<AIAudioController>().PlayAccessDenied();
                 
-            //}
+            }
             
         }
         else if (InsideBox(bodies[0]))

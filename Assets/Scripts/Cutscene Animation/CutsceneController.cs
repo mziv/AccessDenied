@@ -51,7 +51,7 @@ public class CutsceneController : MonoBehaviour {
     public void RobotOn(bool val)
     {
         robotAnimator.SetBool("robotOn", val);
-        if (val) sounds.PlayOneShot(turningOn);
+        if (val) sounds.PlayOneShot(turningOn, 1);
     }
 
     public void TriggerDialogue(string keyword)
