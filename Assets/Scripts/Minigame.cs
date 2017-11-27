@@ -10,6 +10,9 @@ public class Minigame : MonoBehaviour
     private Image[] images;
     private bool[] activated;
     private Image player;
+    
+    public Vector3 startPosBody1;
+    public Vector3 startPosBody2;
     public Vector3 startPos;
     //private Image body1;
     private Image[] bodies;
@@ -58,6 +61,7 @@ public class Minigame : MonoBehaviour
     {
 
         player = images[images.Length - 1];
+        //startPos = startPosBody1;
         //player = GameObject.FindGameObjectWithTag("virtualPlayer");
 
     }
@@ -207,23 +211,29 @@ public class Minigame : MonoBehaviour
     {
         if (InsideBox(bodies[1]))
         {
-            if (FindObjectOfType<CollectionManager>().card1)
-            {
-                print(FindObjectOfType<CollectionManager>().card1);
-                WinGame(1);
+            //if (FindObjectOfType<CollectionManager>().card1)
+            //{
+            //print(FindObjectOfType<CollectionManager>().card1);
+            startPos = startPosBody2;
+            print("set start pos to body2");
+            WinGame(1);
+            
+            
 
-            } else
-            {
+            //} else
+            //{
                 //PlaySound("access denied");
-                print("access denied");
-                FindObjectOfType<AIAudioController>().PlayAccessDenied();
+                //print("access denied");
+                //FindObjectOfType<AIAudioController>().PlayAccessDenied();
                 
-            }
+            //}
             
         }
         else if (InsideBox(bodies[0]))
         {
+            startPos = startPosBody1;
             WinGame(0);
+            
         }
     }
 
