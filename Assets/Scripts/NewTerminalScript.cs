@@ -103,7 +103,7 @@ public class NewTerminalScript : MonoBehaviour {
         terminalWindowUI.SetActive(false);
         AI.SetActive(true);
         GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgameFinal"), 6);
+        GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgame short"), 6);
         StartCoroutine(AIDiscovery());
     }
 
@@ -111,21 +111,18 @@ public class NewTerminalScript : MonoBehaviour {
     {
         AIText = AI.GetComponentInChildren<Text>();
         AIText.text = "Oh.";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         //ChangeButtonsText("Who are you?");
         AIText.text = "Who are you?";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         //ChangeButtonsText("You shouldn't be here.");
         AIText.text = "You shouldn't be here.";
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
 
         AIText.text = "I'll just wipe you from the hard drive.";
-        yield return new WaitForSeconds(3f);
-
-        AIText.text = "Toodles!";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         Color red = new Color(1f, 0f, 0f);
         AIText.color = red;
