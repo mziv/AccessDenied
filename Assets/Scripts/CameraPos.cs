@@ -7,12 +7,16 @@ public class CameraPos : MonoBehaviour {
     public float upDownOffset = 3.0f;
     public bool checkPlayer = false;
     private bool cameraTouchingWall = false;
-    private float playerToCamDistance;
+    private bool slerpCamera = false;
+    //after camera stick on wall, the time it takes for camera to resume position
+    public float slerpTimer = 3f;
+    private float currentTimer = 0f;
+    private float initplayerToCamDistance;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerToCamDistance = getPlayerCamDistance();
+        initplayerToCamDistance = getPlayerCamDistance();
 	}
 	
 	// Update is called once per frame
@@ -21,12 +25,25 @@ public class CameraPos : MonoBehaviour {
         //Debug.Log(playerToCamDistance);
         //Debug.Log(getPlayerCamDistance());
         Vector3 newCameraPos = translatePosToV3();
-        //isPlayerFarFromWall();
-        //if(!cameraTouchingWall) this.transform.position = player.transform.position + newCameraPos;
-        this.transform.position = player.transform.position + newCameraPos;
+
+        Vector3 cameraDestination = player.transform.position + newCameraPos;
+        Vector3 cameraCurrent = this.transform.position;
+
+        //if (slerpCamera)
+        //{
+            //currentTimer += Time.deltaTime;
+            //if (currentTimer >= slerpTimer) slerpCamera = false;
+            //this.transform.position = Vector3.Slerp(cameraCurrent, cameraDestination, Time.deltaTime * 6);
+        //}
+        //else if (!cameraTouchingWall) this.transform.position = player.transform.position + newCameraPos;
+        if (!cameraTouchingWall) this.transform.position = Vector3.Slerp(cameraCurrent, cameraDestination, Time.deltaTime * 6);
+        isPlayerFarFromWall();
+
+        //this.transform.position = player.transform.position + newCameraPos;
         this.transform.LookAt(player.transform.position + upDownOffset * transform.up);
     }
 
+    //after player switch body update player in camera so camera know which player to follow
     void LocatePlayer()
     {
         if (checkPlayer)
@@ -37,6 +54,7 @@ public class CameraPos : MonoBehaviour {
         }
     }
 
+    //makes sure camera always stays relative to player
     Vector3 translatePosToV3()
     {
         float faceDirectionMagnitude = Mathf.Sqrt(Mathf.Pow(player.transform.forward.x, 2) + Mathf.Pow(player.transform.forward.z, 2));
@@ -49,11 +67,18 @@ public class CameraPos : MonoBehaviour {
         return new Vector3(x, cameraPos.y , z);
     }
 
+    //old camera wall fix
     void isPlayerFarFromWall()
     {
-        if (playerToCamDistance <= getPlayerCamDistance()) cameraTouchingWall = false;
+        if (initplayerToCamDistance <= getPlayerCamDistance())
+        {
+            cameraTouchingWall = false;
+            //slerpCamera = true;
+            //currentTimer = 0;
+        }
     }
 
+    //old camera wall fix
     float getPlayerCamDistance()
     {
         return Mathf.Sqrt(Mathf.Pow((player.transform.position - this.transform.position).x, 2) + Mathf.Pow((player.transform.position - this.transform.position).z, 2));

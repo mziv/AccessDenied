@@ -3421,7 +3421,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702053518186280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3539697, y: 0.18174538, z: 28.76991}
+  m_LocalPosition: {x: 0.53, y: 0.18174538, z: 28.76991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4211694134743040}
@@ -3803,7 +3803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locateTarget: 0
   attachDistance: 1
-  closesenseDistance: 6
+  closesenseDistance: 2
   chaseDistance: 40
   workerSpeed: 0.02
   workerChaseSpeed: 0.08
