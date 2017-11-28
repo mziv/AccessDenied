@@ -2117,6 +2117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791b08024730f13459b52f17457416b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleanPrefOnStart: 1
   terminalNotif: {fileID: 1313906592093568}
   terminalAlert: {fileID: 1213662537571310}
   collectableNotif: {fileID: 1194504682114404}
@@ -2506,7 +2507,7 @@ MonoBehaviour:
     Pick up data cards with E
 
 
-    Data cards grant you access to new bodies'
+    Data cards grant you access to robot bodies in terminal'
 --- !u!114 &114995105385964292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2544,7 +2545,7 @@ MonoBehaviour:
     Access terminals with E
 
 
-    Terminals allow you to switch into bodies you have access to.'
+    Need data cards to grant you to access to switch into other robots.'
 --- !u!114 &114997708089904558
 MonoBehaviour:
   m_ObjectHideFlags: 1
