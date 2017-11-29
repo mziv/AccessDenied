@@ -15,8 +15,7 @@ public class FinalTerminal : MonoBehaviour {
     //public AudioSource AIAudio;
 
     // Use this for initialization
-    void Start () {
-        FindPlayer();
+    void Start () {        
         choiceScreenUI.SetActive(false);
         endingUI.SetActive(false);
     }
@@ -51,6 +50,7 @@ public class FinalTerminal : MonoBehaviour {
 
     private void EnterTerminal()
     {
+        FindPlayer();
         choiceScreenUI.SetActive(true);
         player.GetComponent<PlayerControl>().enabled = false;
 
