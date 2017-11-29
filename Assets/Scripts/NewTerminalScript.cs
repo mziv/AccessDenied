@@ -84,6 +84,7 @@ public class NewTerminalScript : MonoBehaviour {
     {
         terminalWindowUI.SetActive(false);
         GetComponent<AudioSource>().Stop();
+        inRadius = false;
         mainAudio.Play();
     }
 
