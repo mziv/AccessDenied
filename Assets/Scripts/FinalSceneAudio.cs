@@ -7,6 +7,8 @@ public class FinalSceneAudio : MonoBehaviour {
     private AudioSource AIAudio;
     public AudioSource mainAudio;
 
+    private bool hasEntered = false;
+
 	// Use this for initialization
 	void Start () {
         AIAudio = GetComponent<AudioSource>();
@@ -19,8 +21,13 @@ public class FinalSceneAudio : MonoBehaviour {
 
     private void OnTriggerEnter()
     {
-        PlayTrack("Sound/AI/Final Scene/AI monologue");
-        mainAudio.Stop();
+        if (!hasEntered)
+        {
+            PlayTrack("Sound/AI/Final Scene/AI monologue");
+            mainAudio.Stop();
+            hasEntered = true;
+        }
+        
     }
 
     public void PlayTrack(string trackLocation)

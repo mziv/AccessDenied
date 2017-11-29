@@ -14,6 +14,8 @@ public class FinalTerminal : MonoBehaviour {
     public AudioSource mainAudio;
     //public AudioSource AIAudio;
 
+    private bool hasPlayedDontTouch = false;
+
     // Use this for initialization
     void Start () {        
         choiceScreenUI.SetActive(false);
@@ -36,7 +38,12 @@ public class FinalTerminal : MonoBehaviour {
         {
             inRadius = true;
             
-            FindObjectOfType<FinalSceneAudio>().PlayTrack("Sound/AI/Final Scene/dont touch 1");
+            if (!hasPlayedDontTouch)
+            {
+                FindObjectOfType<FinalSceneAudio>().PlayTrack("Sound/AI/Final Scene/dont touch 1");
+                hasPlayedDontTouch = true;
+            }
+            
         }
     }
 

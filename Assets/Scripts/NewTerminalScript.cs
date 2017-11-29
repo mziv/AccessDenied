@@ -76,14 +76,15 @@ public class NewTerminalScript : MonoBehaviour {
         FindObjectOfType<Minigame>().Start();
         FindObjectOfType<Minigame>().ResetTerminal();
         player.GetComponent<PlayerControl>().enabled = false;
-        GetComponent<AudioSource>().Play();
+        FindObjectOfType<miniGameMusic>().playAudio();
         mainAudio.Pause();
     }
 
     public void ExitTerminal()
     {
         terminalWindowUI.SetActive(false);
-        GetComponent<AudioSource>().Stop();
+        FindObjectOfType<miniGameMusic>().stopAudio();
+        print("audio turned off???");
         inRadius = false;
         mainAudio.Play();
     }
