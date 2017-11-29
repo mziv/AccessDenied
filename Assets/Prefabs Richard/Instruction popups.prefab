@@ -819,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120958045604942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.303, y: -61.38, z: 61.282}
+  m_LocalPosition: {x: -47.801, y: -61.38, z: 73.28}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 4670498986482524}
@@ -1947,7 +1947,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Press E to interact with objects
 
-    Press I to open inventory'
+    Press I to open inventory
+
+    Press M to open map'
 --- !u!114 &114601843175181326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2117,7 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791b08024730f13459b52f17457416b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleanPrefOnStart: 1
+  cleanPrefOnStart: 0
   terminalNotif: {fileID: 1313906592093568}
   terminalAlert: {fileID: 1213662537571310}
   collectableNotif: {fileID: 1194504682114404}

@@ -21,20 +21,40 @@ public class GameMenu : MonoBehaviour {
     {
         if (Input.GetKeyUp(KeyCode.Escape) && !menuIsOpen)
         {
-            menuIsOpen = true;
-            menu.enabled = true;
+            enterMenu();
         }else if(Input.GetKeyUp(KeyCode.Escape) && menuIsOpen)
         {
-            menuIsOpen = false;
-            menu.enabled = false;
+            exitMenu();
         }
     }
 
     public void closeMenu()
     {
+        exitMenu();
+    }
+
+    public void playCredits()
+    {
+
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
+    void enterMenu()
+    {
+        Time.timeScale = 0f; // pauseGame
+        menuIsOpen = true;
+        menu.enabled = true;
+    }
+
+    void exitMenu()
+    {
+        Time.timeScale = 1f;
         menuIsOpen = false;
         menu.enabled = false;
     }
-
   
 }

@@ -58,6 +58,8 @@ public class Worker : MonoBehaviour {
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         FindPlayer();
         applyGravity();
         Vector3 movement = new Vector3(0, verticalSpeed, 0) + Vector3.zero;

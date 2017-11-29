@@ -9,11 +9,19 @@ public class PlayerControl : MonoBehaviour {
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
+    private Map map;
+
+    private void Start()
+    {
+        map = FindObjectOfType<Map>();
+    }
 
     void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
         moveDirection = new Vector3(0, 0 ,0);
+
+        processCheckMapRequest();
 
         if (controller.isGrounded)
         {
@@ -52,4 +60,15 @@ public class PlayerControl : MonoBehaviour {
         controller.Move(moveDirection * Time.deltaTime);
     }
     
+    void processCheckMapRequest()
+    {
+        if (Input.GetKeyUp("m") && !map.mapIsOpen())
+        {
+            map.openMap();
+        }
+        else if(Input.GetKeyUp("m") && map.mapIsOpen())
+        {
+            map.closeMap();
+        }
+    }
 }
