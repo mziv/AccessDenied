@@ -3804,7 +3804,7 @@ MonoBehaviour:
   locateTarget: 0
   attachDistance: 1
   closesenseDistance: 2
-  chaseDistance: 40
+  chaseDistance: 1000
   workerSpeed: 0.02
   workerChaseSpeed: 0.08
   visionAngle: 45
