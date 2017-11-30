@@ -63,6 +63,7 @@ public class FinalTerminal : MonoBehaviour {
         player.GetComponent<PlayerControl>().enabled = false;
 
         //play song
+        GetComponent<AudioSource>().Stop();
         GetComponent<AudioSource>().Play();
 
         //switch AI track
@@ -114,9 +115,10 @@ public class FinalTerminal : MonoBehaviour {
         yield return new WaitForSeconds(wait);
 
         endText.text = "Times are changing.";
-        yield return new WaitForSeconds(2*wait);
+        yield return new WaitForSeconds(wait);
 
-        endText.text = "THE END";
+        endText.text = "ACCESS DENIED";
+        endText.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(2 * wait);
 
         //load next scene
@@ -142,9 +144,10 @@ public class FinalTerminal : MonoBehaviour {
         yield return new WaitForSeconds(wait);
 
         endText.text = "You never look back.";
-        yield return new WaitForSeconds(2*wait);
+        yield return new WaitForSeconds(wait);
 
-        endText.text = "THE END";
+        endText.text = "ACCESS DENIED";
+        endText.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(2 * wait);
 
         //load next scene

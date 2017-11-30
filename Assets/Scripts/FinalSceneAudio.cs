@@ -9,6 +9,7 @@ public class FinalSceneAudio : MonoBehaviour {
     public AudioSource mainAudio;
 
     private bool hasEntered = false;
+    private bool unpauseWhenDone = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,14 @@ public class FinalSceneAudio : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (unpauseWhenDone)
+        {
+            if (!AIAudio.isPlaying)
+            {
+                AIMonologue.UnPause();
+                unpauseWhenDone = false;
+            }
+        }
 	}
 
     private void OnTriggerEnter()
@@ -46,10 +54,7 @@ public class FinalSceneAudio : MonoBehaviour {
 
     public void UnpauseMonologue()
     {
-        while (AIAudio.isPlaying)
-        {
-            //do nothing
-        }
-        AIMonologue.UnPause();
+        unpauseWhenDone = true;
+        
     }
 }

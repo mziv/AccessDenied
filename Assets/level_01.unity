@@ -289,15 +289,10 @@ Prefab:
         type: 2}
       propertyPath: AIMonologue
       value: 
-      objectReference: {fileID: 47109976}
+      objectReference: {fileID: 930385472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48edcfc7d4881834a94d327835060959, type: 2}
   m_IsPrefabParent: 0
---- !u!82 &47109976 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82325380915821568, guid: 48edcfc7d4881834a94d327835060959,
-    type: 2}
-  m_PrefabInternal: {fileID: 47109975}
 --- !u!1001 &68327696
 Prefab:
   m_ObjectHideFlags: 0
@@ -4068,12 +4063,12 @@ Prefab:
     - target: {fileID: 114995105385964292, guid: db351fb9b486111438a249dcc8b2afe2,
         type: 2}
       propertyPath: m_Text
-      value: 'You found a terminal memory access point!
+      value: 'You found a terminal!
 
         Access terminals with E
 
 
-        Need data cards to grant you to access to switch into other robots.'
+        Need data cards to grant you access to switch into other robots.'
       objectReference: {fileID: 0}
     - target: {fileID: 224734155312431484, guid: db351fb9b486111438a249dcc8b2afe2,
         type: 2}
@@ -4960,6 +4955,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4238125474854100, guid: f0f160594340fd54cb6a4d19f839ea18,
     type: 2}
   m_PrefabInternal: {fileID: 758778744}
+--- !u!4 &767596666 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4313730020139666, guid: 48edcfc7d4881834a94d327835060959,
+    type: 2}
+  m_PrefabInternal: {fileID: 47109975}
 --- !u!1001 &770726546
 Prefab:
   m_ObjectHideFlags: 0
@@ -5927,6 +5927,115 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &930385470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 930385471}
+  - component: {fileID: 930385472}
+  m_Layer: 0
+  m_Name: monologueSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &930385471
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930385470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 767596666}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &930385472
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930385470}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &945258566
 Prefab:
   m_ObjectHideFlags: 0
