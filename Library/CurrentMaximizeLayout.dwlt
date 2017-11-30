@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 681, y: 492}
+  m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 52792
+  controlID: 54608
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 1570
     height: 947
-  m_MinSize: {x: 404, y: 492}
+  m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 52793
+  controlID: 54565
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1570
     height: 549
-  m_MinSize: {x: 404, y: 221}
-  m_MaxSize: {x: 8004, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 52734
+  controlID: 54566
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,10 +200,10 @@ MonoBehaviour:
     width: 293
     height: 528
   m_TreeViewState:
-    scrollPos: {x: 0, y: 1}
-    m_SelectedIDs: 
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ca310000
     m_LastClickedID: 0
-    m_ExpandedIDs: d8decdff3cdfe5ff8207e6ff3a2fe6fff49beeff8e9ceeff9c9ceeff00a0eeff02a0eeff04a0eeff06a0eeff08a0eeff72a1eeff7ea1eeff18a2eeff1aa2eeff1ca2eeff1ea2eeffaea2eeffb0a2eeffb2a2eeffb4a2eeff60a3eeff62a3eeff64a3eeff66a3eeff68a3eeff64a4eeff6aa4eeff40a5eeff00a6eeff0ea6eeff12a6eeff18a6eeff90a9eeff2cb0eeff2eb0eeff30b0eeff32b0eeff34b0eeff26b1eeff28b1eeff2ab1eeffbab2eeff74b4eeff96b4eeffbab4eeffc0b4eeff0abceeff0cbceeff50beeeff52beeeff54beeeff56beeeff78c9eeffe8caeeff9ccceeffa0cceeff22e2eeff4efbeeff2403efffa4a1effff06af4fff26af4ff46cfffff54cfffff14d4ffffb0d5ffffb2d5ffffb6d5ffffb8d5ffff1ed6ffff6ed9ffff42daffff64dbffff02dfffff08dfffffe6e1ffff0ae2ffff12e4ffff2ee4ffff3ae4ffff5ee4fffff0e7ffff16e8ffffe4e8ffff16eeffff18eeffff1ceeffff1eeeffff48fafffffcfbfffffefbffff1afcffff00000000d4390000fa390000303a00007c3a0000823a0000303b00008e3b0000f4da0a004c2f0b00bc630b009cc60b00a6c60b00d4c60b0012c80b0032981200f42413001e3913002e41130082411300
+    m_ExpandedIDs: 3a25c9ffd8decdff3cdfe5ff8207e6ff3a2fe6fff49beeff8e9ceeff9c9ceeff00a0eeff02a0eeff04a0eeff06a0eeff08a0eeff72a1eeff7ea1eeff18a2eeff1aa2eeff1ca2eeff1ea2eeffaea2eeffb0a2eeffb2a2eeffb4a2eeff60a3eeff62a3eeff64a3eeff66a3eeff68a3eeff64a4eeff6aa4eeff40a5eeff00a6eeff0ea6eeff12a6eeff18a6eeff90a9eeff2cb0eeff2eb0eeff30b0eeff32b0eeff34b0eeff26b1eeff28b1eeff2ab1eeffbab2eeff74b4eeff96b4eeffbab4eeffc0b4eeffc4b4eeff0abceeff0cbceeff50beeeff52beeeff54beeeff56beeeff78c9eeffe8caeeff9ccceeffa0cceeff22e2eeff4efbeeff2403efffa4a1effff06af4fff26af4ff46cfffff54cfffff14d4ffffb0d5ffffb2d5ffffb6d5ffffb8d5ffff1ed6ffff6ed9ffff42daffff64dbffff02dfffff08dfffffe6e1ffff0ae2ffff12e4ffff2ee4ffff3ae4ffff5ee4fffff0e7ffff16e8ffffe4e8ffff16eeffff18eeffff1ceeffff1eeeffff48fafffffcfbfffffefbffff1afcffff00000000d4390000fa390000303a00007c3a0000823a0000303b00008e3b0000f4da0a004c2f0b00bc630b009cc60b00a6c60b00d4c60b0012c80b0032981200f42413001e3913002e41130082411300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 1275
     height: 549
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.10633995, y: -0.66624665, z: 0.09682244, w: -0.7317326}
     speed: 2
-    m_Value: {x: -0.10633995, y: -0.66624665, z: 0.09682244, w: -0.7317326}
+    m_Value: {x: 0.10633994, y: 0.66624665, z: -0.09682244, w: 0.7317326}
   m_Size:
     m_Target: 31.97991
     speed: 2
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_MinSize: {x: 332, y: 271}
   m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 52794
+  controlID: 54512
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -498,18 +498,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Environment/Sci-Fi Styled Modular Pack/Prefabs/Decorative elements
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Environment/Sci-Fi Styled Modular Pack/Prefabs/Decorative elements
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\RHVRM1\Desktop\Richard\AccessDenied
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 88}
-    m_SelectedIDs: 0c2c0000
-    m_LastClickedID: 11276
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: fa260000
+    m_LastClickedID: 9978
     m_ExpandedIDs: 00000000fa260000142700003e2700005e270000a8270000d2280000de280000862b00000c2c00000e2c0000502d0000dc2d0000f02f00008e3000000631000052310000de3200000835000048350000a63500000036000016360000f8360000fa36000066370000f83700001838000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -563,9 +563,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ca310000
+    m_LastClickedInstanceID: 12746
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 3c2b000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 53}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 191
 --- !u!114 &14
