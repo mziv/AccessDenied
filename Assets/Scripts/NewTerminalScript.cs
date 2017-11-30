@@ -54,7 +54,7 @@ public class NewTerminalScript : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -162,5 +162,7 @@ public class NewTerminalScript : MonoBehaviour {
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
         FindObjectOfType<DoorSensorPos>().checkPlayer = true;
+
+        FindPlayer();
     }
 }
