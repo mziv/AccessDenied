@@ -115,6 +115,9 @@ public class FinalTerminal : MonoBehaviour {
         endText.text = "Times are changing.";
         yield return new WaitForSeconds(2*wait);
 
+        endText.text = "THE END";
+        yield return new WaitForSeconds(2 * wait);
+
         //load next scene
     }
 
@@ -139,6 +142,9 @@ public class FinalTerminal : MonoBehaviour {
 
         endText.text = "You never look back.";
         yield return new WaitForSeconds(2*wait);
+
+        endText.text = "THE END";
+        yield return new WaitForSeconds(2 * wait);
 
         //load next scene
     }
