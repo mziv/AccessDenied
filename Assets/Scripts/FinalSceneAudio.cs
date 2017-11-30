@@ -5,6 +5,7 @@ using UnityEngine;
 public class FinalSceneAudio : MonoBehaviour {
 
     private AudioSource AIAudio;
+    public AudioSource AIMonologue;
     public AudioSource mainAudio;
 
     private bool hasEntered = false;
@@ -23,21 +24,32 @@ public class FinalSceneAudio : MonoBehaviour {
     {
         if (!hasEntered)
         {
-            PlayTrack("Sound/AI/Final Scene/AI monologue");
+            //PlayTrack("Sound/AI/Final Scene/AI monologue");
+            AIMonologue.PlayOneShot(Resources.Load<AudioClip>("Sound/AI/Final Scene/AI monologue"), .75f);
             mainAudio.Stop();
             hasEntered = true;
         }
-        
+
     }
 
     public void PlayTrack(string trackLocation)
     {
+        AIMonologue.Pause();
         Stop();
-        AIAudio.PlayOneShot(Resources.Load<AudioClip>(trackLocation), 1);
+        AIAudio.PlayOneShot(Resources.Load<AudioClip>(trackLocation), .8f);
     }
 
     public void Stop()
     {
         AIAudio.Stop();
+    }
+
+    public void UnpauseMonologue()
+    {
+        while (AIAudio.isPlaying)
+        {
+            //do nothing
+        }
+        AIMonologue.UnPause();
     }
 }

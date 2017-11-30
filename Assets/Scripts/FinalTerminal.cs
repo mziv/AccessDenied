@@ -52,6 +52,7 @@ public class FinalTerminal : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             inRadius = false;
+            FindObjectOfType<FinalSceneAudio>().UnpauseMonologue();
         }
     }
 
