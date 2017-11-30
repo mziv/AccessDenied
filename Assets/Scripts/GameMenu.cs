@@ -5,11 +5,14 @@ using UnityEngine;
 public class GameMenu : MonoBehaviour {
 
     public Canvas menu;
+    public Canvas credits;
     private bool menuIsOpen = false;
+    private bool creditsOpen = false;
 
     private void Start()
     {
         menu.enabled = false;
+        credits.enabled = false;
     }
 
     // Update is called once per frame
@@ -19,7 +22,11 @@ public class GameMenu : MonoBehaviour {
 
     void openCloseMenuOnESC()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && !menuIsOpen)
+        if (creditsOpen && (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)))
+        {
+            closeCredits();
+        }
+        else if (Input.GetKeyUp(KeyCode.Escape) && !menuIsOpen)
         {
             enterMenu();
         }else if(Input.GetKeyUp(KeyCode.Escape) && menuIsOpen)
@@ -57,4 +64,15 @@ public class GameMenu : MonoBehaviour {
         menu.enabled = false;
     }
   
+    public void openCredits()
+    {
+        credits.enabled = true;
+        creditsOpen = true;
+    }
+
+    public void closeCredits()
+    {
+        credits.enabled = false;
+        creditsOpen = false;
+    }
 }

@@ -711,7 +711,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 851798620}
-        m_MethodName: playCredits
+        m_MethodName: openCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3110,7 +3110,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1343032859494978, guid: 1a56fe8c69213ea43948edd7f52f82cb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223644965792816016, guid: 1a56fe8c69213ea43948edd7f52f82cb,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a56fe8c69213ea43948edd7f52f82cb, type: 2}
@@ -4313,6 +4318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 1701495683}
+  credits: {fileID: 1262557897}
 --- !u!4 &851798621
 Transform:
   m_ObjectHideFlags: 0
@@ -5962,6 +5968,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1255689839}
   m_Mesh: {fileID: 4300000, guid: bd208c72ef68e624cadf7858b9e8f17d, type: 3}
+--- !u!223 &1262557897 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223644965792816016, guid: 1a56fe8c69213ea43948edd7f52f82cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 641762608}
 --- !u!1001 &1282172707
 Prefab:
   m_ObjectHideFlags: 0
