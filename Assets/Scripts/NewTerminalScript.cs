@@ -104,7 +104,7 @@ public class NewTerminalScript : MonoBehaviour {
     {
         terminalWindowUI.SetActive(false);
         AI.SetActive(true);
-        GetComponent<AudioSource>().Stop();
+        FindObjectOfType<miniGameMusic>().stopAudio();
         GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgame short"), 6);
         StartCoroutine(AIDiscovery());
     }
