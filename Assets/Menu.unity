@@ -338,7 +338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WASD move   Space jump
+  m_Text: WASD move
 --- !u!222 &736022380
 CanvasRenderer:
   m_ObjectHideFlags: 0

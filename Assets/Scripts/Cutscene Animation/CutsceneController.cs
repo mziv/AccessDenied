@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CutsceneController : MonoBehaviour {
 
@@ -28,8 +29,11 @@ public class CutsceneController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKey(KeyCode.Return))
+        {
+            LoadNext();
+        }
+    }
 
     public void ScientistMoving(bool val)
     {
@@ -92,5 +96,12 @@ public class CutsceneController : MonoBehaviour {
     public void Blackout()
     {
         blackout.SetActive(true);
+    }
+
+    public void LoadNext()
+    {
+        Blackout();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }
