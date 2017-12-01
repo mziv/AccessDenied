@@ -8,11 +8,13 @@ public class GameMenu : MonoBehaviour {
     public Canvas credits;
     private bool menuIsOpen = false;
     private bool creditsOpen = false;
+    private AnnouncementAudio announce;
 
     private void Start()
     {
         menu.enabled = false;
         credits.enabled = false;
+        announce = FindObjectOfType<AnnouncementAudio>();
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class GameMenu : MonoBehaviour {
     void enterMenu()
     {
         Time.timeScale = 0f; // pauseGame
+        announce.pauseAnnounce();
         menuIsOpen = true;
         menu.enabled = true;
     }
@@ -60,6 +63,7 @@ public class GameMenu : MonoBehaviour {
     void exitMenu()
     {
         Time.timeScale = 1f;
+        announce.resumeAnnounce();
         menuIsOpen = false;
         menu.enabled = false;
     }

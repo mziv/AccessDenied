@@ -5,10 +5,12 @@ using UnityEngine;
 public class AnnouncementAudio : MonoBehaviour {
 
     private bool hasPlayed = false;
+    private AudioSource announcement;
+    private bool paused = false;
 
 	// Use this for initialization
 	void Start () {
-		
+        announcement = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -20,9 +22,27 @@ public class AnnouncementAudio : MonoBehaviour {
     {
         if (!hasPlayed)
         {
-            GetComponent<AudioSource>().Play();
+            announcement.Play();
             hasPlayed = true;
         }
         
+    }
+
+    public void pauseAnnounce()
+    {
+        if (announcement.isPlaying && !paused)
+        {
+            announcement.Pause();
+            paused = true;
+        }
+    }
+
+    public void resumeAnnounce()
+    {
+        if (paused)
+        {
+            announcement.UnPause();
+            paused = false;
+        }
     }
 }

@@ -70,6 +70,7 @@ public class Worker : MonoBehaviour {
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
 
+        //Debug.DrawRay(transform.position + transform.up * 0.5f, direction, Color.green);
         //if all conditions satisfy the worker will chase the player
         if (PlayerInRange(angle) && CanSeePlayer(direction))
         {
@@ -182,7 +183,7 @@ public class Worker : MonoBehaviour {
     bool CanSeePlayer(Vector3 direction)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up * 0.5f, direction.normalized, out hit, chaseDistance))
+        if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, chaseDistance))
         {
             if (hit.transform == player.transform)
             {
