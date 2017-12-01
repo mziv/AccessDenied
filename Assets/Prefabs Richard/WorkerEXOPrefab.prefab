@@ -3805,8 +3805,8 @@ MonoBehaviour:
   attachDistance: 1
   closesenseDistance: 2
   chaseDistance: 1000
-  workerSpeed: 0.06
-  workerChaseSpeed: 0.15
+  workerSpeed: 1
+  workerChaseSpeed: 3
   visionAngle: 45
   idleTimerRange: 5
   patrolDuration: 7

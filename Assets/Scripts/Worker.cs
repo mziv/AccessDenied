@@ -160,7 +160,7 @@ public class Worker : MonoBehaviour {
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.2f);
         if(Vector3.Distance(this.transform.position, currentTarget.transform.position) > 1f)
         {
-            this.transform.Translate(0, 0, workerSpeed);
+            this.transform.Translate(0, 0, workerSpeed * Time.deltaTime);
             setAnimationState(AnimState.Walk);
         }
         else if(currentTarget == landmark1)
@@ -182,7 +182,7 @@ public class Worker : MonoBehaviour {
     bool CanSeePlayer(Vector3 direction)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, chaseDistance))
+        if (Physics.Raycast(transform.position + transform.up * 0.5f, direction.normalized, out hit, chaseDistance))
         {
             if (hit.transform == player.transform)
             {
@@ -203,7 +203,7 @@ public class Worker : MonoBehaviour {
         //chase
         if (direction.magnitude > attachDistance)
         {
-            this.transform.Translate(0, 0, workerChaseSpeed);
+            this.transform.Translate(0, 0, workerChaseSpeed * Time.deltaTime);
             setAnimationState(AnimState.Run);
         }
         //stop to attack
