@@ -22,6 +22,7 @@ public class CutsceneController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.DeleteAll();
         dialogue.enabled = false;
         blackout.SetActive(false);
         sounds = this.GetComponent<AudioSource>();

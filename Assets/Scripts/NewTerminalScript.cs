@@ -45,7 +45,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("e") && inRadius && !terminalWindowUI.activeSelf) EnterTerminal();
+        if (Input.GetKeyDown("e") && inRadius && player.tag == "Player" && !terminalWindowUI.activeSelf) EnterTerminal();
         if (terminalWindowUI.activeSelf)
         {
             if (gameWon) HandleWin();
