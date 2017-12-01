@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnnouncementAudio : MonoBehaviour {
 
+    private bool hasPlayed = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +18,11 @@ public class AnnouncementAudio : MonoBehaviour {
 
     private void OnTriggerEnter()
     {
-        GetComponent<AudioSource>().Play();
+        if (!hasPlayed)
+        {
+            GetComponent<AudioSource>().Play();
+            hasPlayed = true;
+        }
+        
     }
 }

@@ -3528,6 +3528,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82852041748101908, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82498899582376520, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471641241274524, guid: 35d741ea8e9f4d542873d30cf852e1a8,
+        type: 2}
+      propertyPath: AITurn
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35d741ea8e9f4d542873d30cf852e1a8, type: 2}
   m_IsPrefabParent: 0
