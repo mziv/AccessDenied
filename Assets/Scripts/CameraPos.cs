@@ -49,7 +49,6 @@ public class CameraPos : MonoBehaviour {
         if (checkPlayer)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            FindObjectOfType<Worker>().locateTarget = true;
             checkPlayer = false;
         }
     }

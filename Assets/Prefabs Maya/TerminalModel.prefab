@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4040386959374342
 Transform:
   m_ObjectHideFlags: 1
@@ -250,5 +250,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07030c9e412e07847a49b0633cf93a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPos: {x: 0, y: 0, z: 0}
   checkPlayer: 0

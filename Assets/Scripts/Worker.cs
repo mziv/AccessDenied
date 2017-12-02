@@ -70,7 +70,7 @@ public class Worker : MonoBehaviour {
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
 
-        //Debug.DrawRay(transform.position + transform.up * 0.5f, direction, Color.green);
+        Debug.DrawRay(transform.position + transform.up * 0.5f, direction, Color.green);
         //if all conditions satisfy the worker will chase the player
         if (PlayerInRange(angle) && CanSeePlayer(direction))
         {
@@ -295,6 +295,8 @@ public class Worker : MonoBehaviour {
         {
             playerGO = GameObject.FindGameObjectWithTag("Player");
             player = playerGO.transform;
+            Debug.Log("Target located");
+            Debug.Log(player.gameObject.name);
             locateTarget = false;
         }
     }

@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 82817074312869176}
   m_Layer: 0
   m_Name: WorkerEXOPrefab
-  m_TagString: Untagged
+  m_TagString: worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

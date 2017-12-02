@@ -8,6 +8,7 @@ TagManager:
   - collectable
   - Wall
   - Door
+  - worker
   layers:
   - Default
   - TransparentFX

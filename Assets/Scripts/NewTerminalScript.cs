@@ -45,7 +45,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("e") && inRadius && player.tag == "Player" && !terminalWindowUI.activeSelf) EnterTerminal();
+        if (Input.GetKeyDown("e") && inRadius && !terminalWindowUI.activeSelf) EnterTerminal();
         if (terminalWindowUI.activeSelf)
         {
             if (gameWon) HandleWin();
@@ -85,7 +85,6 @@ public class NewTerminalScript : MonoBehaviour {
         terminalWindowUI.SetActive(false);
         FindObjectOfType<miniGameMusic>().stopAudio();
         print("audio turned off???");
-        inRadius = false;
         mainAudio.Play();
     }
 
@@ -162,7 +161,13 @@ public class NewTerminalScript : MonoBehaviour {
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
         FindObjectOfType<DoorSensorPos>().checkPlayer = true;
+        GameObject[] workers = GameObject.FindGameObjectsWithTag("worker");
+        foreach (GameObject worker in workers)
+        {
+            worker.GetComponent<Worker>().locateTarget = true;
+        }
 
         FindPlayer();
+        inRadius = false;
     }
 }
