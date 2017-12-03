@@ -72,6 +72,8 @@ public class NewTerminalScript : MonoBehaviour {
 
     private void EnterTerminal()
     {
+        FindPlayer();
+        Debug.Log(player.gameObject.name);
         terminalWindowUI.SetActive(true);
         FindObjectOfType<Minigame>().Start();
         FindObjectOfType<Minigame>().ResetTerminal();
@@ -152,7 +154,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     public void SwitchBody(int body)
     {
-        FindPlayer();
+        //FindPlayer();
         player.GetComponent<PlayerControl>().enabled = false;
         player.tag = "Untagged";
 
