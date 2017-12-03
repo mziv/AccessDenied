@@ -6754,7 +6754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
