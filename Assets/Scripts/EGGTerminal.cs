@@ -9,6 +9,7 @@ public class EGGTerminal : MonoBehaviour {
     private CollectionManager inventory;
     public GameObject needCards;
     public GameObject easterEgg;
+    public bool checkPlayer = false;
 
     public GameObject page1;
     public GameObject page2;
@@ -88,5 +89,14 @@ public class EGGTerminal : MonoBehaviour {
         page1.SetActive(false);
         page2.SetActive(false);
         page3.SetActive(false);
+    }
+
+    void updatePlayer()
+    {
+        if (checkPlayer)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            checkPlayer = false;
+        }
     }
 }

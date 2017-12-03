@@ -161,6 +161,7 @@ public class NewTerminalScript : MonoBehaviour {
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
         FindObjectOfType<DoorSensorPos>().checkPlayer = true;
+        FindObjectOfType<EGGTerminal>().checkPlayer = true;
         GameObject[] workers = GameObject.FindGameObjectsWithTag("worker");
         foreach (GameObject worker in workers)
         {
