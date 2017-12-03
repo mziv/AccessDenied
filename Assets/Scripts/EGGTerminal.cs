@@ -23,6 +23,7 @@ public class EGGTerminal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        updatePlayer();
         if (Input.GetKeyDown("e") && inRadius && player.tag == "Player")
         {
             if (hasPermission())
