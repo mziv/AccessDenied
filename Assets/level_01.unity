@@ -6254,12 +6254,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95511021684748312, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
@@ -6750,11 +6750,11 @@ Prefab:
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
@@ -6763,7 +6763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
