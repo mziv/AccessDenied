@@ -92,7 +92,7 @@ public class FinalTerminal : MonoBehaviour {
 
     public IEnumerator PrintMergeText()
     {
-        float wait = 5f;
+        float wait = 8f;
         endText.text = "";
         yield return new WaitForSeconds(4f);
 
@@ -117,7 +117,7 @@ public class FinalTerminal : MonoBehaviour {
         endText.text = "Times are changing.";
         yield return new WaitForSeconds(wait);
 
-        endText.text = "ACCESS DENIED";
+        endText.text = "THE END";
         endText.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(2 * wait);
 
@@ -126,7 +126,7 @@ public class FinalTerminal : MonoBehaviour {
 
     public IEnumerator PrintReplaceText()
     {
-        float wait = 5f;
+        float wait = 8f;
 
         endText.text = "";
         yield return new WaitForSeconds(4f);
@@ -146,7 +146,7 @@ public class FinalTerminal : MonoBehaviour {
         endText.text = "You never look back.";
         yield return new WaitForSeconds(wait);
 
-        endText.text = "ACCESS DENIED";
+        endText.text = "THE END";
         endText.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(2 * wait);
 
