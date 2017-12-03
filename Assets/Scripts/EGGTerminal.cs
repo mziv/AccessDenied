@@ -7,6 +7,12 @@ public class EGGTerminal : MonoBehaviour {
     private GameObject player;
     private bool inRadius = false;
     private CollectionManager inventory;
+    public GameObject needCards;
+    public GameObject easterEgg;
+
+    public GameObject page1;
+    public GameObject page2;
+    public GameObject page3;
 
     // Use this for initialization
     void Start () {
@@ -20,11 +26,11 @@ public class EGGTerminal : MonoBehaviour {
         {
             if (hasPermission())
             {
-                Debug.Log("opened EGG");
+                LoadEasterEgg();
             }
             else
             {
-                Debug.Log("Need all three cards");
+                LoadNeedCards();
             }
         }
     }
@@ -48,5 +54,39 @@ public class EGGTerminal : MonoBehaviour {
     private bool hasPermission()
     {
         return (inventory.card1 && inventory.card2 && inventory.card3);
+    }
+
+    public void LoadEasterEgg()
+    {
+        easterEgg.SetActive(true);
+        page1.SetActive(true);
+    }
+
+    public void LoadNextPage()
+    {
+        if (page1.activeSelf)
+        {
+            page1.SetActive(false);
+            page2.SetActive(true);
+        }
+        else if (page2.activeSelf)
+        {
+            page2.SetActive(false);
+            page3.SetActive(true);
+        }
+    }
+
+    public void LoadNeedCards()
+    {
+        needCards.SetActive(true);
+    }
+
+    public void AllOff()
+    {
+        needCards.SetActive(false);
+        easterEgg.SetActive(false);
+        page1.SetActive(false);
+        page2.SetActive(false);
+        page3.SetActive(false);
     }
 }

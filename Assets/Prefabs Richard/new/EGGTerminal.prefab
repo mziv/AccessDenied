@@ -120,3 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fd9d43a12b21343a25ef307177ab92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCards: {fileID: 0}
+  easterEgg: {fileID: 0}
+  page1: {fileID: 0}
+  page2: {fileID: 0}
+  page3: {fileID: 0}
