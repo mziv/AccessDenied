@@ -20,9 +20,10 @@ public class AnnouncementAudio : MonoBehaviour {
 
     private void OnTriggerEnter()
     {
-        if (!hasPlayed)
+        if (!hasPlayed && PlayerPrefs.GetInt("announce") != 1)
         {
             announcement.Play();
+            PlayerPrefs.SetInt("announce", 1);
             hasPlayed = true;
         }
         

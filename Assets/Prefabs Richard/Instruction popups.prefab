@@ -1254,7 +1254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Don't get caught by the ship AI while she's accessing memory blocks!
+  m_Text: Don't get caught by the Beta's onboard navigation system while it's accessing
+    memory blocks!
 --- !u!114 &114196960103451174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1949,7 +1950,9 @@ MonoBehaviour:
 
     Press I to open inventory
 
-    Press M to open map'
+    Press M to open map
+
+    Press ESC to open menu'
 --- !u!114 &114601843175181326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2547,7 +2550,7 @@ MonoBehaviour:
     Access terminals with E
 
 
-    Need data cards to grant you to access to switch into other robots.'
+    Need data cards to grant you access to switch into other robots.'
 --- !u!114 &114997708089904558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2955,7 +2958,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 11}
-  m_SizeDelta: {x: 518, y: 133.4}
+  m_SizeDelta: {x: 585.9, y: 133.4}
   m_Pivot: {x: 0.5, y: 0.24532333}
 --- !u!224 &224190876567027128
 RectTransform:
@@ -3216,7 +3219,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0001123252, y: -65.000046}
-  m_SizeDelta: {x: 609.62, y: 201.4}
+  m_SizeDelta: {x: 791.5, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.3411175}
 --- !u!224 &224729873362609526
 RectTransform:
@@ -3271,7 +3274,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0001123252, y: 10.999985}
-  m_SizeDelta: {x: 518, y: 133.4}
+  m_SizeDelta: {x: 595.62, y: 133.4}
   m_Pivot: {x: 0.5, y: 0.24532333}
 --- !u!224 &224742263771298512
 RectTransform:
@@ -3329,7 +3332,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -65}
-  m_SizeDelta: {x: 518, y: 201.4}
+  m_SizeDelta: {x: 663.9, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.3411175}
 --- !u!224 &224774642959838878
 RectTransform:

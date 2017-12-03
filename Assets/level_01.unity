@@ -4161,63 +4161,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114651437259838210, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: cleanPrefOnStart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603222740968584, guid: db351fb9b486111438a249dcc8b2afe2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114146932326171276, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_Text
-      value: Don't get caught by the Beta's onboard navigation system while it's accessing
-        memory blocks!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114995105385964292, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_Text
-      value: 'You found a terminal!
-
-        Access terminals with E
-
-
-        Need data cards to grant you access to switch into other robots.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 224734155312431484, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 595.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 224629900620859806, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 791.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224189614384231578, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 585.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 224749872323334212, guid: db351fb9b486111438a249dcc8b2afe2,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 663.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039733570450472, guid: db351fb9b486111438a249dcc8b2afe2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681134117883862, guid: db351fb9b486111438a249dcc8b2afe2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1213662537571310, guid: db351fb9b486111438a249dcc8b2afe2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db351fb9b486111438a249dcc8b2afe2, type: 2}
   m_IsPrefabParent: 0
@@ -5986,12 +5929,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95511021684748312, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
@@ -6482,11 +6425,11 @@ Prefab:
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1014128083863486, guid: 1e326adac4afa914b964a244bc8ae99e, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 114755490862319498, guid: 1e326adac4afa914b964a244bc8ae99e,
         type: 2}
