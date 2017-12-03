@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3379610}
   - component: {fileID: 2385752}
   - component: {fileID: 6576272}
+  - component: {fileID: 65758163799482916}
   m_Layer: 0
   m_Name: bulletin_board_big
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126148}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -15.561999, y: -0.09705621, z: 23.736}
-  m_LocalScale: {x: 0.8, y: 0.7, z: 0.8}
+  m_LocalPosition: {x: -32.187, y: -0.092056215, z: 40.471363}
+  m_LocalScale: {x: 0.8000005, y: 0.7, z: 0.40000024}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,3 +94,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126148}
   m_IsPrefabParent: 1
+--- !u!65 &65758163799482916
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3550844, y: 3.751722, z: 3.67}
+  m_Center: {x: -1.2804171e-15, y: 1.8832728, z: -1.48}
