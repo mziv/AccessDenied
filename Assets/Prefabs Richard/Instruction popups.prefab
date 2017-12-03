@@ -1946,13 +1946,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press E to interact with objects
+  m_Text: 'Press ESC to open menu
+
+    Press E to interact with objects
 
     Press I to open inventory
 
     Press M to open map
 
-    Press ESC to open menu'
+'
 --- !u!114 &114601843175181326
 MonoBehaviour:
   m_ObjectHideFlags: 1

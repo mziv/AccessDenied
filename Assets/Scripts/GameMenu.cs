@@ -6,14 +6,18 @@ public class GameMenu : MonoBehaviour {
 
     public Canvas menu;
     public Canvas credits;
+    public Canvas controls;
+
     private bool menuIsOpen = false;
     private bool creditsOpen = false;
+    private bool controlsOpen = false;
     private AnnouncementAudio announce;
 
     private void Start()
     {
         menu.enabled = false;
         credits.enabled = false;
+        controls.enabled = false;
         announce = FindObjectOfType<AnnouncementAudio>();
     }
 
@@ -27,6 +31,10 @@ public class GameMenu : MonoBehaviour {
         if (creditsOpen && (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)))
         {
             closeCredits();
+        }
+        else if(controlsOpen && (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)))
+        {
+            closeControls();
         }
         else if (Input.GetKeyUp(KeyCode.Escape) && !menuIsOpen)
         {
@@ -78,5 +86,17 @@ public class GameMenu : MonoBehaviour {
     {
         credits.enabled = false;
         creditsOpen = false;
+    }
+
+    public void openControls()
+    {
+        controls.enabled = true;
+        controlsOpen = true;
+    }
+
+    public void closeControls()
+    {
+        controls.enabled = false;
+        controlsOpen = false;
     }
 }
