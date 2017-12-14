@@ -54,7 +54,7 @@ public class NewTerminalScript : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -72,18 +72,21 @@ public class NewTerminalScript : MonoBehaviour {
 
     private void EnterTerminal()
     {
+        FindPlayer();
+        Debug.Log(player.gameObject.name);
         terminalWindowUI.SetActive(true);
         FindObjectOfType<Minigame>().Start();
         FindObjectOfType<Minigame>().ResetTerminal();
         player.GetComponent<PlayerControl>().enabled = false;
-        GetComponent<AudioSource>().Play();
+        FindObjectOfType<miniGameMusic>().playAudio();
         mainAudio.Pause();
     }
 
     public void ExitTerminal()
     {
         terminalWindowUI.SetActive(false);
-        GetComponent<AudioSource>().Stop();
+        FindObjectOfType<miniGameMusic>().stopAudio();
+        print("audio turned off???");
         mainAudio.Play();
     }
 
@@ -102,7 +105,7 @@ public class NewTerminalScript : MonoBehaviour {
     {
         terminalWindowUI.SetActive(false);
         AI.SetActive(true);
-        GetComponent<AudioSource>().Stop();
+        FindObjectOfType<miniGameMusic>().stopAudio();
         GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sound/AI/endgame short"), 6);
         StartCoroutine(AIDiscovery());
     }
@@ -151,7 +154,7 @@ public class NewTerminalScript : MonoBehaviour {
 
     public void SwitchBody(int body)
     {
-        FindPlayer();
+        //FindPlayer();
         player.GetComponent<PlayerControl>().enabled = false;
         player.tag = "Untagged";
 
@@ -160,5 +163,14 @@ public class NewTerminalScript : MonoBehaviour {
 
         FindObjectOfType<CameraPos>().checkPlayer = true;
         FindObjectOfType<DoorSensorPos>().checkPlayer = true;
+        FindObjectOfType<EGGTerminal>().checkPlayer = true;
+        GameObject[] workers = GameObject.FindGameObjectsWithTag("worker");
+        foreach (GameObject worker in workers)
+        {
+            worker.GetComponent<Worker>().locateTarget = true;
+        }
+
+        FindPlayer();
+        inRadius = false;
     }
 }

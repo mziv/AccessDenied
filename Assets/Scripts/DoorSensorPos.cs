@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorSensorPos : MonoBehaviour {
-    public Vector3 cameraPos;
     private GameObject player;
     public bool checkPlayer = false;
 
@@ -15,6 +14,7 @@ public class DoorSensorPos : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         LocatePlayer();
+        player = GameObject.FindGameObjectWithTag("Player");
         this.transform.position = player.transform.position;
     }
 
@@ -23,7 +23,8 @@ public class DoorSensorPos : MonoBehaviour {
         if (checkPlayer)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            checkPlayer = false;
+            checkPlayer = true;
         }
     }
+
 }

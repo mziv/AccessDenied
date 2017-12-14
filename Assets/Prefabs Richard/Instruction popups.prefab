@@ -819,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120958045604942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.303, y: -61.38, z: 61.282}
+  m_LocalPosition: {x: -47.801, y: -61.38, z: 73.28}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 4670498986482524}
@@ -1254,7 +1254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Don't get caught by the ship AI while she's accessing memory blocks!
+  m_Text: Don't get caught by the Beta's onboard navigation system while it's accessing
+    memory blocks!
 --- !u!114 &114196960103451174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1945,9 +1946,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press E to interact with objects
+  m_Text: 'Press ESC to open menu
 
-    Press I to open inventory'
+    Press E to interact with objects
+
+    Press I to open inventory
+
+    Press M to open map
+
+'
 --- !u!114 &114601843175181326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2117,7 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791b08024730f13459b52f17457416b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleanPrefOnStart: 1
+  cleanPrefOnStart: 0
   terminalNotif: {fileID: 1313906592093568}
   terminalAlert: {fileID: 1213662537571310}
   collectableNotif: {fileID: 1194504682114404}
@@ -2545,7 +2552,7 @@ MonoBehaviour:
     Access terminals with E
 
 
-    Need data cards to grant you to access to switch into other robots.'
+    Need data cards to grant you access to switch into other robots.'
 --- !u!114 &114997708089904558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2953,7 +2960,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 11}
-  m_SizeDelta: {x: 518, y: 133.4}
+  m_SizeDelta: {x: 585.9, y: 133.4}
   m_Pivot: {x: 0.5, y: 0.24532333}
 --- !u!224 &224190876567027128
 RectTransform:
@@ -3214,7 +3221,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0001123252, y: -65.000046}
-  m_SizeDelta: {x: 609.62, y: 201.4}
+  m_SizeDelta: {x: 791.5, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.3411175}
 --- !u!224 &224729873362609526
 RectTransform:
@@ -3269,7 +3276,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0001123252, y: 10.999985}
-  m_SizeDelta: {x: 518, y: 133.4}
+  m_SizeDelta: {x: 595.62, y: 133.4}
   m_Pivot: {x: 0.5, y: 0.24532333}
 --- !u!224 &224742263771298512
 RectTransform:
@@ -3327,7 +3334,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -65}
-  m_SizeDelta: {x: 518, y: 201.4}
+  m_SizeDelta: {x: 663.9, y: 201.4}
   m_Pivot: {x: 0.5, y: 0.3411175}
 --- !u!224 &224774642959838878
 RectTransform:

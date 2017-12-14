@@ -23,8 +23,14 @@ public class CollectableTrigger : MonoBehaviour {
             if (gameObject.name == "card1") manager.card1 = true;
             else if (gameObject.name == "card2") manager.card2 = true;
             else if (gameObject.name == "card3") manager.card3 = true;
-            Destroy(gameObject);
+            GetComponent<AudioSource>().Play();
+            Invoke("destroyCard", 0.5f);
         }
+    }
+
+    void destroyCard()
+    {
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter()

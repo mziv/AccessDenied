@@ -11,15 +11,21 @@ public class SmokeTrigger : MonoBehaviour {
         blurEffect = FindObjectOfType<BlurEffect>();
     }
 
-	void OnTriggerEnter()
+	void OnTriggerEnter(Collider other)
     {
-        effects.enabled = true;
-        blurEffect.enabled = true;
+        if (other.gameObject.tag == "Player")
+        {
+            effects.enabled = true;
+            blurEffect.enabled = true;
+        }
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        effects.enabled = false;
-        blurEffect.enabled = false;
+        if (other.gameObject.tag == "Player")
+        {
+            effects.enabled = false;
+            blurEffect.enabled = false;
+        }
     }
 }

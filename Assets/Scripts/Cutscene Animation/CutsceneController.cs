@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CutsceneController : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class CutsceneController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.DeleteAll();
         dialogue.enabled = false;
         blackout.SetActive(false);
         sounds = this.GetComponent<AudioSource>();
@@ -28,8 +30,11 @@ public class CutsceneController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.Space))
+        {
+            LoadNext();
+        }
+    }
 
     public void ScientistMoving(bool val)
     {
@@ -92,5 +97,12 @@ public class CutsceneController : MonoBehaviour {
     public void Blackout()
     {
         blackout.SetActive(true);
+    }
+
+    public void LoadNext()
+    {
+        Blackout();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }

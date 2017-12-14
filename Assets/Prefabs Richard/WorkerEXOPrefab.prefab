@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 82817074312869176}
   m_Layer: 0
   m_Name: WorkerEXOPrefab
-  m_TagString: Untagged
+  m_TagString: worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3804,9 +3804,9 @@ MonoBehaviour:
   locateTarget: 0
   attachDistance: 1
   closesenseDistance: 2
-  chaseDistance: 40
-  workerSpeed: 0.02
-  workerChaseSpeed: 0.08
+  chaseDistance: 1000
+  workerSpeed: 1
+  workerChaseSpeed: 8
   visionAngle: 45
   idleTimerRange: 5
   patrolDuration: 7

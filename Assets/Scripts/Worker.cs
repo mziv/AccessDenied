@@ -58,6 +58,8 @@ public class Worker : MonoBehaviour {
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         FindPlayer();
         applyGravity();
         Vector3 movement = new Vector3(0, verticalSpeed, 0) + Vector3.zero;
@@ -68,6 +70,7 @@ public class Worker : MonoBehaviour {
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
 
+        Debug.DrawRay(transform.position + transform.up * 0.5f, direction, Color.green);
         //if all conditions satisfy the worker will chase the player
         if (PlayerInRange(angle) && CanSeePlayer(direction))
         {
@@ -158,7 +161,7 @@ public class Worker : MonoBehaviour {
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.2f);
         if(Vector3.Distance(this.transform.position, currentTarget.transform.position) > 1f)
         {
-            this.transform.Translate(0, 0, workerSpeed);
+            this.transform.Translate(0, 0, workerSpeed * Time.deltaTime);
             setAnimationState(AnimState.Walk);
         }
         else if(currentTarget == landmark1)
@@ -201,7 +204,7 @@ public class Worker : MonoBehaviour {
         //chase
         if (direction.magnitude > attachDistance)
         {
-            this.transform.Translate(0, 0, workerChaseSpeed);
+            this.transform.Translate(0, 0, workerChaseSpeed * Time.deltaTime);
             setAnimationState(AnimState.Run);
         }
         //stop to attack
@@ -292,6 +295,8 @@ public class Worker : MonoBehaviour {
         {
             playerGO = GameObject.FindGameObjectWithTag("Player");
             player = playerGO.transform;
+            Debug.Log("Target located");
+            Debug.Log(player.gameObject.name);
             locateTarget = false;
         }
     }

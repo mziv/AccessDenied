@@ -11,19 +11,19 @@ public class CameraPos : MonoBehaviour {
     //after camera stick on wall, the time it takes for camera to resume position
     public float slerpTimer = 3f;
     private float currentTimer = 0f;
-    private float initplayerToCamDistance;
+    private static float initplayerToCamDistance = 2.152759f;
 
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        initplayerToCamDistance = getPlayerCamDistance();
+        //initplayerToCamDistance = getPlayerCamDistance();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         LocatePlayer();
         //Debug.Log(playerToCamDistance);
-        //Debug.Log(getPlayerCamDistance());
+        //Debug.Log(initplayerToCamDistance);
         Vector3 newCameraPos = translatePosToV3();
 
         Vector3 cameraDestination = player.transform.position + newCameraPos;
@@ -49,7 +49,6 @@ public class CameraPos : MonoBehaviour {
         if (checkPlayer)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            FindObjectOfType<Worker>().locateTarget = true;
             checkPlayer = false;
         }
     }
